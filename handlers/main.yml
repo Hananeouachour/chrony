@@ -4,3 +4,7 @@
   ansible.builtin.service:
     name: chronyd
     state: restarted
+  tags:
+    - chrony
+
+

@@ -4,15 +4,24 @@
   ansible.builtin.dnf:
     name: chrony
     state: latest
-
+  tags: 
+    - chrony
+  
 #- name: Copy chrony config file
 #  ansible.builtin.copy:
 #    src: chrony.conf
 #    dest: "{{ remote_file }}"
 #  notify: restart chrony
+#  tags:
+#    - chrony
+
 
 - name: Template a file to /etc/chrony.conf
   ansible.builtin.template:
     src: chrony.conf.j2
     dest: "{{ remote_file }}"
   notify: restart chrony
+  tags:
+    - chrony
+
+
